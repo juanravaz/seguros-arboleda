@@ -1,0 +1,6 @@
+### PHP STORM ###
+/.idea
+.phpstorm.meta.php
+.env
+# Project exclude paths
+/node_modules/
