@@ -13,6 +13,7 @@ class ReportController extends Controller
         $this->middleware('auth');
     }
 
+
     public function index()
     {
         $reports = Report::orderBy('id','asc')->get();

@@ -67,7 +67,6 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-
         //dd($request->all());
 
         $valid = $request->validate([
@@ -86,6 +85,7 @@ class UserController extends Controller
         }
         //$user->dni = $request->dni;
         $user->phone = $request->phone;
+        $user->Birth = $request->birth;
 
         $user->save();
 
