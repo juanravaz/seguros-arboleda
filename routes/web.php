@@ -23,7 +23,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('users/destroy', [UserController::class, 'destroy'])->name('admin.user.destroy');
 
     //RUTAS ADMINISTRATIVAS PARA LOS SEGUROS
-    Route::get('/home/insurances', [InsuranceController::class , 'homeinsurances'])->name('admin.insurances.home');
+    Route::get('/home/insurances', [\App\Http\Controllers\HomeInsuranceController::class , 'index'])->name('admin.homeinsurance.home');
+    Route::get('/home/insurances/create', [\App\Http\Controllers\HomeInsuranceController::class,'create'])->name('admin.homeinsurance.create');
+    Route::post('home/insurances/store' , [\App\Http\Controllers\HomeInsuranceController::class, 'store'])->name('admin.homeinsurance.store');
+
+    Route::get('/home/insurances/edit/{id}', [\App\Http\Controllers\HomeInsuranceController::class,'edit'])->name('admin.homeinsurance.edit');
+    Route::put('/home/insurances/update/', [\App\Http\Controllers\HomeInsuranceController::class,'update'])->name('admin.homeinsurance.update');
+
+    Route::delete('/home/insurances/destroy/', [\App\Http\Controllers\HomeInsuranceController::class,'destroy'])->name('admin.homeinsurance.destroy');
 
 });
 
@@ -33,3 +40,5 @@ Route::middleware(['auth', 'technician'])->group(function () {
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

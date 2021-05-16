@@ -7,8 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class HomeInsurance extends Model
 {
+    protected $primaryKey = 'insurance_id';
+
+    protected $fillable = [
+        'street',
+        'm2',
+        'postalCode',
+        'insurance_id',
+    ];
+
     use HasFactory;
     public function insurance(){
-        return $this->hasOne(Insurance::class);
+        return $this->belongsTo(Insurance::class);
     }
 }

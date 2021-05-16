@@ -15,11 +15,6 @@ class InsuranceController extends Controller
 
     public function homeinsurances()
     {
-        $homeinsurances = HomeInsurance::all();
 
-        //dd($insurances);
-        //dd($insurances);
-
-        return view('admin.insurance.home' , compact('homeinsurances'));
     }
 }
