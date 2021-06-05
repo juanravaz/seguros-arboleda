@@ -84,7 +84,7 @@ class HomeInsuranceController extends Controller
 
         if ($valid){
 
-            $homeInsurance = HomeInsurance::find($request->home);
+            $homeInsurance = HomeInsurance::find($request->id);
             //dd($homeInsurance);
 
             $homeInsurance->street = $request->street;
@@ -93,7 +93,7 @@ class HomeInsuranceController extends Controller
 
             $homeInsurance->save();
 
-            $insurance = Insurance::find($request->home);
+            $insurance = Insurance::find($request->id);
             $insurance->name = $request->name;
             $insurance->price = $request->price;
             $insurance->user_id = $request->user;
@@ -123,4 +123,5 @@ class HomeInsuranceController extends Controller
         return back()->with(compact('message'));
 
    }
+
 }

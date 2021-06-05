@@ -14,6 +14,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
+        if(session()->has('respuesta'))
+        {
+            return redirect('/paypal/pay');
+        }else{
+            return view('admin.index');
+        }
+
     }
 }

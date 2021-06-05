@@ -20,6 +20,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'Phone',
+        'Birth',
+        'Payment',
+        'avatar'
     ];
 
     /**
@@ -42,6 +46,10 @@ class User extends Authenticatable
     ];
     public function insurances(){
         return $this->hasMany(Insurance::class);
+
+    }
+    public function reports(){
+        return $this->hasMany(User::class);
 
     }
 }

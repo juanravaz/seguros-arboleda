@@ -89,8 +89,7 @@ class CarInsuranceController extends Controller
 
         if ($valid){
 
-            $carInsurance = CarInsurance::find($request->car);
-
+            $carInsurance = CarInsurance::find($request->id);
             $carInsurance->plate = $request->plate;
             $carInsurance->fuel= $request->fuel;
             $carInsurance->car= $request->car;
@@ -98,10 +97,9 @@ class CarInsuranceController extends Controller
 
             $carInsurance->save();
 
-            $insurance = Insurance::find($request->car);
+            $insurance = Insurance::find($request->id);
             $insurance->name = $request->name;
             $insurance->price = $request->price;
-            $insurance->user_id = $request->user;
 
             $insurance->save();
 
@@ -125,6 +123,19 @@ class CarInsuranceController extends Controller
        $message = 'Registro borrado con éxito';
 
         return back()->with(compact('message'));
+   }
+
+   public function pay(Request $request)
+   {
+        $price = $request->precio;
+
+        $request->session()->put('type' , $request->type);
+        $request->session()->put('price' , $price);
+        $request->session()->put('fuel' , $request->fuel);
+        $request->session()->put('marca' , $request->marca);
+        $request->session()->put('modelo' , $request->modelo);
+        $request->session()->put('anio' , $request->anio);
+        $request->session()->put('plate' , $request->matricula);
 
    }
 }

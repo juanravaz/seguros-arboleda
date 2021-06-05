@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
             'payment'=>null,
             'phone'=>123123123,
             'birth'=>'1/1/20',
-            'password'=>bcrypt('admin')]);
+            'password'=>bcrypt('admin'),
+            'avatar'=>'default.png']);
+
 
         User::create(['name' =>'technician',
             'email'=>'technician@gmail.com',
@@ -29,7 +31,9 @@ class DatabaseSeeder extends Seeder
             'payment'=>null,
             'phone'=>123123123,
             'birth'=>'1/1/20',
-            'password'=>bcrypt('tecnician')]);
+            'password'=>bcrypt('tecnician'),
+            'avatar'=>'default.png']);
+
         $this->call(
             CarSeeder::class
         );

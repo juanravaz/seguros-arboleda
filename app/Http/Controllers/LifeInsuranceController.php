@@ -17,9 +17,9 @@ class LifeInsuranceController extends Controller
     }
 
    public function index(){
-       $lifeinsurance = LifeInsurance::all();
+       $lifeInsurances = LifeInsurance::all();
 
-       return view('admin.lifeinsurance.home' , compact('lifeinsurance'));
+       return view('admin.lifeinsurance.home' , compact('lifeInsurances'));
    }
    public function create(){
         //$users = DB::table('users')->where('role','user');

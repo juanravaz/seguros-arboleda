@@ -19,9 +19,10 @@ class CreateReportsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('status');
-            $table->string('intervention');
-            $table->string('resolution');
-            $table->foreignId('insurance_id')->constrained()->onUpdate('cascade');
+            $table->string('intervention')->nullable();
+            $table->string('resolution')->nullable();
+            $table->foreignId('insurance_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

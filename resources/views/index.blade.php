@@ -47,9 +47,9 @@
 
                     <div class="topbar-right">
                         <div class="topbar-right">
-                        <span class="topbar-widget"><a href="#">Privacy policy</a></span>
-                        <span class="topbar-widget"><a href="#">Customer Support</a></span>
-                        <span class="topbar-widget"><a href="#">FAQ</a></span>
+                        <span class="topbar-widget"><a href="#">Contrato de privacidad</a></span>
+                        <span class="topbar-widget"><a href="#">Soporte al cliente</a></span>
+                        <span class="topbar-widget"><a href="#">Preguntas y respuestas</a></span>
                     </div>
                     </div>
                     <div class="clearfix"></div>
@@ -60,91 +60,7 @@
             <header class="transparent header-light scroll-light">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="de-flex sm-pt10">
-                                <div class="de-flex-col">
-                                    <!-- logo begin -->
-                                    <div id="logo">
-                                        <a href="index.html">
-                                            <img alt="" class="logo" src="images/logo-light.png" />
-                                            <img alt="" class="logo-2" src="images/logo-green.png" />
-                                        </a>
-                                    </div>
-                                    <!-- logo close -->
-                                </div>
-                                <div class="de-flex-col header-col-mid">
-                                    <!-- mainmenu begin -->
-                                    <ul id="mainmenu">
-                                        <li>
-                                            <a href="index.html">Home<span></span></a>
-                                            <ul>
-                                                <li><a href="index.html">Homepage 1</a></li>
-                                                <li><a href="index-2.html">Homepage 2</a></li>
-                                                <li><a href="index-3.html">Homepage 3</a></li>
-                                                <li><a href="index-4.html">Homepage 4</a></li>
-                                                <li><a href="index-5.html">Homepage 5</a></li>
-                                                <li><a href="index-6.html">Homepage 6</a></li>
-                                                <li><a href="index-7.html">Homepage 7</a></li>
-                                                <li><a href="index-8.html">Homepage 8</a></li>
-                                                <li><a href="coming-soon.html">Coming Soon</a></li>
-                                            </ul>
-                                        </li>
-                                        </li>
-                                        <li>
-                                            <a href="#">Company<span></span></a>
-                                            <ul>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="why-choose-us.html">Why Choose Us</a></li>
-                                                <li><a href="careers.html">Careers</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">Insurance<span></span></a>
-                                            <ul>
-                                                <li><a href="insurance-details-1.html">Life Insurance</a></li>
-												<li><a href="insurance-details-2.html">Home Insurance</a></li>
-                                                <li><a href="insurance-details-3.html">Auto Insurance</a></li>
-                                                <li><a href="insurance-details-4.html">Health Insurance</a></li>
-                                                <li><a href="insurance-details-5.html">Business Insurance</a></li>
-                                                <li><a href="insurance-details-6.html">Condo Insurance</a></li>
-                                                <li><a href="insurance-1.html">All Insurance Layout 1</a></li>
-                                                <li><a href="insurance-2.html">All Insurance Layout 2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">Pages<span></span></a>
-                                            <ul>
-												<li><a href="news.html">Blog</a></li>
-												<li><a href="gallery.html">Gallery</a></li>
-                                                <li><a href="login.html">Login</a></li>
-												<li><a href="login-2.html">Login 2</a></li>
-                                                <li><a href="register.html">Register</a></li>
-												<li><a href="contact.html">Contact Us</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">Elements<span></span></a>
-                                            <ul>
-												<li><a href="icons-font-awesome.html">Font Awesome Icons</a></li>
-												<li><a href="icons-elegant.html">Elegant Icons</a></li>
-												<li><a href="icons-etline.html">Etline Icons</a></li>
-                                                <li><a href="alerts.html">Alerts</a></li>
-												<li><a href="accordion.html">Accordion</a></li>
-												<li><a href="modal.html">Modal</a></li>
-												<li><a href="progress-bar.html">Progress Bar</a></li>
-												<li><a href="tabs.html">Tabs</a></li>
-												<li><a href="counters.html">Counters</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="de-flex-col">
-                                    <div class="h-phone"><span>Need&nbsp;Help?</span><i class="fa fa-phone"></i> 1 200 300 9000</div>
-                                    <span id="menu-btn"></span>
-                                </div>
-                            </div>
-                        </div>
+                        @include('partials.nav')
                     </div>
                 </div>
             </header>
@@ -163,19 +79,25 @@
 
                                 <div class="col-lg-6 wow fadeInRight" data-wow-delay=".5s">
                                     <div class="padding30 rounded img-shadow" data-bgcolor="rgba(240, 246, 234, .7)">
-                                        <h2>Ninguna preocupación mas. <span class="id-color">Regístrate ahora</span>.</h2>
+                                        <h2>Ninguna preocupación mas.
+                                            @if (Route::has('login'))
+                                                <span class="id-color">Contrata ahora</span>.</h2>
+                                            @else
+                                                <span class="id-color">Regístrate ahora</span>.</h2>
+                                            @endif
 
-                                        <a href='insurance-details-2.html' class="icon-box rounded">
+
+                                        <a href='{{ route('homeinsurance') }}' class="icon-box rounded">
                                             <i class="icofont-home"></i>
                                             <span>Hogar</span>
                                         </a>
 
-                                        <a href='insurance-details-31.html' class="icon-box rounded">
+                                        <a href='{{ route('carinsurance') }}' class="icon-box rounded">
                                             <i class="icofont-car"></i>
                                             <span>Coche</span>
                                         </a>
 
-                                         <a href='insurance-details-4.html' class="icon-box rounded">
+                                         <a href='{{ route('lifeinsurance') }}' class="icon-box rounded">
                                             <i class="icofont-heart-beat"></i>
                                             <span>Salud</span>
                                         </a>
@@ -308,7 +230,7 @@
                             <div class="col-lg-12">
                                 <div class="text-center">
                                     <span class="p-title invert text-white">Latest</span><br>
-                                    <h2>Customer Reviews</h2>
+                                    <h2>Valoraciones de nuestros clientes</h2>
                                     <div class="small-border"></div>
                                 </div>
                                 <div class="owl-carousel owl-theme" id="testimonial-carousel">
@@ -316,7 +238,7 @@
                                         <div class="de_testi opt-2 review no-bg">
                                             <blockquote>
                                                 <i class="fa fa-quote-left id-color"></i>
-                                                <h3>Trustworthy insurance</h3>
+                                                <h3>Compañía de la competencia</h3>
                                                 <p>Eiusmod consequat eu adipisicing minim anim aliquip cupidatat culpa excepteur quis. Occaecat sit eu exercitation irure Lorem incididunt nostrud.</p>
                                                 <div class="de_testi_by"><span>John, Pixar Studio</span></div>
                                             </blockquote>
@@ -558,59 +480,38 @@
                 <div class="container">
                     <div class="row">
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                             <div class="widget">
-                                <h5>Our Company</h5>
+                                <h5>Nuestra empresa</h5>
                                 <ul>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="why-choose-us.html">Why Choose Us</a></li>
-                                    <li><a href="jobs.html">Careers</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="contact.html">News</a></li>
+                                    <li><a href="about.html">Sobre nosotros</a></li>
+                                    <li><a href="why-choose-us.html">Por qué elegirnos?</a></li>
+                                    <li><a href="jobs.html">Trabajo</a></li>
+                                    <li><a href="contact.html">Contactanos</a></li>
+                                    <li><a href="contact.html">Noticias</a></li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                             <div class="widget">
-                                <h5>Insurance</h5>
+                                <h5>Seguros</h5>
                                 <ul>
-                                   <li><a href="features.html">Life Insurance</a></li>
-                                   <li><a href="pricing.html">Home Insurance</a></li>
-                                   <li><a href="reviews.html">Auto Insurance</a></li>
-                                   <li><a href="download.html">Health Insurance</a></li>
-                                   <li><a href="download.html">Business Insurance</a></li>
-                                   <li><a href="download.html">Condo Insurance</a></li>
+                                   <li><a href="{{ route('lifeinsurance') }}">Seguros de vida</a></li>
+                                   <li><a href="{{ route('carinsurance') }}">Seguros de coche</a></li>
+                                   <li><a href="{{ route('homeinsurance') }}">Seguros de hogar</a></li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                             <div class="widget">
-                                <h5>Get In Touch</h5>
-                                We're here to listen:
+                                <h5>Contacto:</h5>
                                 <address class="s1">
-                                    <span><i class="fa fa-map-marker fa-lg"></i>08 W 36th St, New York, NY 10001</span>
-                                    <span><i class="fa fa-phone fa-lg"></i>+1 200 300 9000</span>
-                                    <span><i class="fa fa-envelope-o fa-lg"></i><a href="mailto:contact@example.com">contact@example.com</a></span>
-                                    <span><i class="fa fa-file-pdf-o fa-lg"></i><a href="#">Download Brochure</a></span>
+                                    <span><i class="fa fa-map-marker fa-lg"></i>Av de la Arboleda, s/n, Av. Arboleda, 21440 Lepe, Huelva</span>
+                                    <span><i class="fa fa-phone fa-lg"></i>+34 959 48 99 04</span>
+                                    <span><i class="fa fa-envelope-o fa-lg"></i><a href="mailto:contact@example.com">ieslaarboleda@ieslaarboleda.com</a></span>
                                 </address>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div class="widget">
-                                <h5>Newsletter</h5>
-
-                                <p>Signup for our newsletter to get the latest news, updates and special offers in your inbox.</p>
-                                <form action="blank.php" class="row" id="form_subscribe" method="post" name="form_subscribe">
-                                    <div class="col text-center">
-                                        <input class="form-control" id="name_1" name="name_1" placeholder="enter your email" type="text" /> <a href="#" id="btn-submit"><i class="arrow_right bg-color-secondary"></i></a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </form>
-                                <div class="spacer-10"></div>
-                                <small>Your email is safe with us. We don't spam.</small>
                             </div>
                         </div>
                     </div>
@@ -622,7 +523,7 @@
                             <div class="col-md-12">
                                 <div class="de-flex">
                                     <div class="de-flex-col">
-                                        &copy; Copyright 2021 - Priva by Designesia
+                                        &copy; Copyright {{ date('Y') }} - Seguros arboleda
                                     </div>
 
                                     <div class="de-flex-col">

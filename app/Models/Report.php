@@ -11,4 +11,11 @@ class Report extends Model
     public function insurance(){
         return $this->belongsTo(Insurance::class);
     }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function reportimages()
+    {
+        return $this->hasMany(ReportImage::class);
+    }
 }

@@ -17,7 +17,7 @@ class CreateCarInsurancesTable extends Migration
             $table->string('plate');
             $table->string('fuel');
             $table->string('car');
-            $table->integer('year');
+            $table->date('year');
             $table->foreignId('insurance_id')->constrained()->onUpdate('cascade');
             $table->timestamps();
         });
